@@ -1,0 +1,55 @@
+body {
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+.login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: rgb(1, 0, 36);
+    text-align: center;
+    justify-content: center;
+}
+
+.login-contents {
+    padding-top: 25vh;
+}
+
+.logo {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    transform: translateX(-150px);
+    padding-bottom: 30px;
+}
+
+.logo img {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 20px #00000068);
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+p {
+    color: red;
+}
+
+p.hidden {
+    visibility: hidden;
+}
