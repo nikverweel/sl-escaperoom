@@ -26,9 +26,11 @@ body {
     position: relative;
     width: 300px;
     height: 300px;
-    left: 50%;
+    left: 42%;
     transform: translateX(-150px);
     padding-bottom: 30px;
+    transform-style: preserve-3d;
+    animation: swing 15s infinite;
 }
 
 .logo img {
@@ -52,4 +54,21 @@ p {
 
 p.hidden {
     visibility: hidden;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+#viewer {
+    width: 100vw;
+    height: 100vh;
 }
