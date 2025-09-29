@@ -8,13 +8,42 @@ const viewerContainer = document.getElementById("viewer");
 
 // Map users to panoramas
 const validLogins = [
-    { user: "user1", pass: "password1", pano: "/images/360/scene1.jpg" },
-    { user: "user2", pass: "password2", pano: "/images/360/scene2.jpg" },
-    { user: "user3", pass: "password3", pano: "/images/360/scene3.jpg" },
-    { user: "user4", pass: "password4", pano: "/images/360/scene4.jpg" }
+    { user: "machina_humana", pass: "password1", pano: "/images/360/scene1.jpg" },
+    { user: "patria_locus", pass: "8517", pano: "/images/360/scene2.jpg" },
+    { user: "proiectura", pass: "38295", pano: "/images/360/scene3.jpg" },
+    { user: "dominus_mens", pass: "41845", pano: "/images/360/scene4.jpg" }
 ];
 
 let viewer = null;
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    console.log("Wake Lock is active");
+
+    // If lock gets released (tab hidden, minimized, etc.)
+    wakeLock.addEventListener("release", () => {
+      console.log("Wake Lock released, trying again...");
+    });
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+// Reacquire when the page comes back into view
+document.addEventListener("visibilitychange", () => {
+  if (wakeLock !== null && document.visibilityState === "visible") {
+    requestWakeLock();
+  }
+});
+
+// Start wake lock after any user interaction (safer than auto on load)
+document.addEventListener("click", () => {
+  if (wakeLock === null) {
+    requestWakeLock();
+  }
+}, { once: true }); // only need to request once
 
 function showErrorAndReset() {
     invalidMessage.classList.remove("hidden");
