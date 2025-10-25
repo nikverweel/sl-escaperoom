@@ -8,7 +8,7 @@ const viewerContainer = document.getElementById("viewer");
 
 // Map users to panoramas
 const validLogins = [
-    { user: "machina_humana", pass: "72350524754", pano: "/images/360/scene1.jpg" },
+    { user: "machina_humana", pass: "723505247542", pano: "/images/360/scene1.jpg" },
     { user: "patria_locus", pass: "8517", pano: "/images/360/scene2.jpg" },
     { user: "possunt_codice", pass: "overthemoon", pano: "/images/360/scene3.jpg" },
     { user: "dominus_mens", pass: "41845", pano: "/images/360/scene4.jpg" }
